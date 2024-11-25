@@ -1,19 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marcnava <marcnava@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/11 19:26:37 by marcnava          #+#    #+#             */
-/*   Updated: 2024/11/11 19:27:49 by marcnava         ###   ########.fr       */
+/*   Created: 2024/11/25 19:37:45 by marcnava          #+#    #+#             */
+/*   Updated: 2024/11/25 19:47:45 by marcnava         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "../push_swap.h"
+#include "../../libs/libft/headers/libft.h"
 
-int main(void)
+static void	_swap(t_ps_node **init)
 {
-	printf("hola");
-	return (0);
+	return ;
+}
+
+void	sa(t_ps_node **a)
+{
+	_swap(a);
+	ft_printf("sa\n");
+}
+
+void	sb(t_ps_node **b)
+{
+	_swap(b);
+	ft_printf("sb\n");
+}
+
+void	ss(t_ps_node **a, t_ps_node **b)
+{
+	_swap(a);
+	_swap(b);
+	ft_printf("ss\n");
 }
