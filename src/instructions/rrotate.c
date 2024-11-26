@@ -6,7 +6,7 @@
 /*   By: marcnava <marcnava@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 19:54:02 by marcnava          #+#    #+#             */
-/*   Updated: 2024/11/25 20:00:26 by marcnava         ###   ########.fr       */
+/*   Updated: 2024/11/26 22:24:45 by marcnava         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 static void	_rrotate(t_ps_node **node)
 {
+	if (!*node || !(*node)->next)
+		return ;
 	return ;
 }
 

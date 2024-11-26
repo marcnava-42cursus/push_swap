@@ -6,7 +6,7 @@
 /*   By: marcnava <marcnava@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 19:48:08 by marcnava          #+#    #+#             */
-/*   Updated: 2024/11/25 19:50:37 by marcnava         ###   ########.fr       */
+/*   Updated: 2024/11/26 22:24:53 by marcnava         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 static void	_push(t_ps_node **dest, t_ps_node **src)
 {
+	dest = src;
+	src = dest;
 	return ;
 }
 
