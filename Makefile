@@ -6,7 +6,7 @@
 #    By: marcnava <marcnava@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/26 17:33:23 by marcnava          #+#    #+#              #
-#    Updated: 2024/11/29 19:06:02 by marcnava         ###   ########.fr        #
+#    Updated: 2024/12/03 19:09:24 by marcnava         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,7 @@ INCLUDE		=	./src/push_swap.h
 
 SRCSPATH	=	./src
 INSTR		=	$(SRCSPATH)/instructions
+UTILS		=	$(SRCSPATH)/utils
 LIBS		=	./libs/libft
 
 # **************************************************************************** #
@@ -39,8 +40,10 @@ SRCS 		=	$(SRCSPATH)/push_swap.c
 SRCS		+=	$(INSTR)/push.c \
 				$(INSTR)/rotate.c \
 				$(INSTR)/rrotate.c \
-				$(INSTR)/swap.c \
-				$(INSTR)/utils.c
+				$(INSTR)/swap.c
+
+SRCS		+=	$(UTILS)/stack_manager.c \
+				$(UTILS)/stack.c
 
 OBJS		=	$(SRCS:.c=.o)
 

@@ -6,12 +6,11 @@
 /*   By: marcnava <marcnava@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 19:50:52 by marcnava          #+#    #+#             */
-/*   Updated: 2024/11/29 18:52:45 by marcnava         ###   ########.fr       */
+/*   Updated: 2024/12/03 19:10:45 by marcnava         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-#include "../../libs/libft/headers/libft.h"
 
 static void	_rotate(t_ps_node **node)
 {

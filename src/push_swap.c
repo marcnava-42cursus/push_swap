@@ -1,53 +1,35 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: marcnava <marcnava@student.42madrid.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/12/03 18:25:58 by marcnava          #+#    #+#             */
+/*   Updated: 2024/12/03 21:07:12 by marcnava         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
-#include "../libs/libft/headers/libft.h"
 #include <stdio.h>
 
-void print_stack(t_ps_node *stack)
+int	main(int argc, char **argv)
 {
-    while (stack)
-    {
-        printf("%d ", stack->number);
-        stack = stack->next;
-    }
-    printf("\n");
-}
+	t_ps_node	*a;
+	t_ps_node	*b;
 
-int main(void)
-{
-    t_ps_node *stack_a = NULL;
-    t_ps_node *stack_b = NULL;
-
-    // Poner algunos números en la pila A para probar
-    // Los valores son solo ejemplos. Puedes agregarlos de cualquier forma.
-    push(&stack_a, 5);
-    push(&stack_a, 4);
-    push(&stack_a, 3);
-    push(&stack_a, 2);
-    push(&stack_a, 1);
-
-    // Imprimir estado de las pilas antes de las operaciones
-    printf("Pila A antes de las operaciones: ");
-    print_stack(stack_a);
-    printf("Pila B antes de las operaciones: ");
-    print_stack(stack_b);
-
-    // Realizar algunas operaciones
-    pb(&stack_a, &stack_b);  // Mueve 1 de A a B
-    pb(&stack_a, &stack_b);  // Mueve 2 de A a B
-    pa(&stack_a, &stack_b);  // Mueve 2 de B a A
-    pa(&stack_a, &stack_b);  // Mueve 1 de B a A
-
-    // Imprimir estado de las pilas después de las operaciones
-    printf("Pila A después de las operaciones: ");
-    print_stack(stack_a);
-    printf("Pila B después de las operaciones: ");
-    print_stack(stack_b);
-
-    // Liberar la memoria de las pilas
-    while (stack_a)
-        pop(&stack_a);
-    while (stack_b)
-        pop(&stack_b);
-
-    return 0;
+	a = NULL;
+	b = NULL;
+	if (argc == 1 || (argc == 2 && !argv[1][0]))
+		return (1);
+	else if (argc == 2)
+		argv = ft_split(argv[1], ' ');
+	ft_init_stack(&a, argv + 1);
+	if (!ft_is_sorted(a))
+	{
+		if (ft_stack_len(a) == 2)
+			sa(&a);
+	}
+	ft_free_stack(&a);
+	return (0);
 }
