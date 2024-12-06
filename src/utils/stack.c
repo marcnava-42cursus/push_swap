@@ -6,29 +6,11 @@
 /*   By: marcnava <marcnava@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 19:09:02 by marcnava          #+#    #+#             */
-/*   Updated: 2024/12/03 21:06:33 by marcnava         ###   ########.fr       */
+/*   Updated: 2024/12/06 03:51:43 by marcnava         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-
-void	ft_free_stack(t_ps_node **stack)
-{
-	t_ps_node	*tmp;
-	t_ps_node	*current;
-
-	if (!stack)
-		return ;
-	current = *stack;
-	while (current)
-	{
-		tmp = current->next;
-		current->number = 0;
-		ft_free((void *)&current);
-		current = tmp;
-	}
-	*stack = NULL;
-}
 
 t_ps_node	*ft_last_node(t_ps_node *node)
 {
@@ -65,4 +47,44 @@ int	ft_stack_len(t_ps_node *stack)
 		stack = stack->next;
 	}
 	return (count);
+}
+
+t_ps_node	*ft_find_smallest(t_ps_node *stack)
+{
+	long		min;
+	t_ps_node	*node;
+
+	if (!stack)
+		return (NULL);
+	min = UINT_MAX;
+	while (stack)
+	{
+		if (stack->number < min)
+		{
+			min = stack->number;
+			node = stack;
+		}
+		stack = stack->next;
+	}
+	return (node);
+}
+
+t_ps_node	*ft_find_biggest(t_ps_node *stack)
+{
+	long		max;
+	t_ps_node	*node;
+
+	if (!stack)
+		return (NULL);
+	max = -UINT_MAX;
+	while (stack)
+	{
+		if (stack->number > max)
+		{
+			max = stack->number;
+			node = stack;
+		}
+		stack = stack->next;
+	}
+	return (node);
 }

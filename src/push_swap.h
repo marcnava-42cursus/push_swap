@@ -6,7 +6,7 @@
 /*   By: marcnava <marcnava@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 17:29:55 by marcnava          #+#    #+#             */
-/*   Updated: 2024/12/03 20:49:07 by marcnava         ###   ########.fr       */
+/*   Updated: 2024/12/06 03:01:21 by marcnava         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ typedef struct s_ps_node
 	struct s_ps_node	*prev;
 }			t_ps_node;
 
+// INSTRUCTIONS
+
 void		pa(t_ps_node **a, t_ps_node **b);
 void		pb(t_ps_node **b, t_ps_node **a);
 
@@ -43,10 +45,22 @@ void		sa(t_ps_node **a);
 void		sb(t_ps_node **b);
 void		ss(t_ps_node **a, t_ps_node **b);
 
-t_ps_node	*ft_last_node(t_ps_node *node);
-void		ft_init_stack(t_ps_node **stack, char **values);
+// UTILS
+
 void		ft_free_stack(t_ps_node **stack);
+
+t_ps_node	*ft_last_node(t_ps_node *node);
 bool		ft_is_sorted(t_ps_node *stack);
 int			ft_stack_len(t_ps_node *stack);
+t_ps_node	*ft_find_biggest(t_ps_node *stack);
+t_ps_node	*ft_find_smallest(t_ps_node *stack);
+
+void		ft_init_stack(t_ps_node **stack, char **values);
+
+// ALGORITHM
+
+void		ft_sort_two(t_ps_node **stack);
+void		ft_sort_three(t_ps_node **stack);
+void		ft_sort(t_ps_node **a, t_ps_node **b);
 
 #endif
