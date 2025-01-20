@@ -6,7 +6,7 @@
 #    By: marcnava <marcnava@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/26 17:33:23 by marcnava          #+#    #+#              #
-#    Updated: 2024/12/06 04:23:50 by marcnava         ###   ########.fr        #
+#    Updated: 2025/01/20 20:09:31 by marcnava         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -65,12 +65,12 @@ $(LIBS)/libft.a:
 				@$(MAKE) --no-print-directory -C $(LIBS)
 
 $(NAME):		$(OBJS) $(LIBS)/libft.a
-				@$(COMPILER) $(INCLUDE) $(OBJS) $(LIBS)/libft.a -o $(NAME)
+				@$(COMPILER) $(OBJS) $(LIBS)/libft.a -o $(NAME)
 				@$(MAKE) --no-print-directory -C $(LIBS) fclean
 				@printf "Compiled.\n"
 
 %.o:			%.c
-				@$(COMPILER) $(INCLUDE) -c $< -o $@
+				@$(COMPILER) -c $< -o $@
 
 clean:
 				@$(RM) $(OBJS)
