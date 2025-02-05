@@ -6,11 +6,11 @@
 /*   By: marcnava <marcnava@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 19:48:08 by marcnava          #+#    #+#             */
-/*   Updated: 2024/12/03 19:10:32 by marcnava         ###   ########.fr       */
+/*   Updated: 2025/01/29 19:22:20 by marcnava         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../../includes/push_swap.h"
 
 static void	_insert_into_dest(t_ps_node **dest, t_ps_node *node)
 {

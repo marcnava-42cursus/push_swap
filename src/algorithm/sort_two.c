@@ -6,13 +6,15 @@
 /*   By: marcnava <marcnava@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 18:30:28 by marcnava          #+#    #+#             */
-/*   Updated: 2024/12/05 18:43:13 by marcnava         ###   ########.fr       */
+/*   Updated: 2025/02/04 17:57:29 by marcnava         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../../includes/push_swap.h"
 
-void	ft_sort_two(t_ps_node **stack)
+
+void	sort_two(t_ps_node **stack)
 {
-	sa(stack);
+	if (!stack_is_sorted(*stack))
+		sa(stack);
 }

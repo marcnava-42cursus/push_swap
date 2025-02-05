@@ -6,11 +6,12 @@
 /*   By: marcnava <marcnava@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 18:51:17 by marcnava          #+#    #+#             */
-/*   Updated: 2024/12/06 02:59:33 by marcnava         ###   ########.fr       */
+/*   Updated: 2025/02/05 20:50:44 by marcnava         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../../includes/push_swap.h"
+
 
 static void	_append_node(t_ps_node **stack, int content)
 {
@@ -32,22 +33,28 @@ static void	_append_node(t_ps_node **stack, int content)
 	}
 	else
 	{
-		last = ft_last_node(*stack);
+		last = stack_last_node(*stack);
 		last->next = new;
 		new->prev = last;
 	}
 }
 
-void	ft_init_stack(t_ps_node **stack, char **values)
+void init_stack(t_ps_node **stack, char **values)
 {
-	long	n;
-	int		i;
+    int i;
+    long value;
 
-	i = 0;
-	while (values[i])
-	{
-		n = ft_atol(values[i]);
-		_append_node(stack, (int)n);
-		i++;
-	}
+    i = 0;
+    while (values[i])
+    {
+        if (check_sintax(values[i]))
+            terminate(stack, values, i, "invalid syntax");
+        value = ft_atol(values[i]);
+        if (value > INT_MAX || value < INT_MIN)
+            terminate(stack, values, i, "value out of range");
+        if (check_dup(*stack, (int)value))
+            terminate(stack, values, i, "duplicated values");
+        _append_node(stack, (int)value);
+        i++;
+    }
 }

@@ -6,13 +6,14 @@
 /*   By: marcnava <marcnava@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 19:09:02 by marcnava          #+#    #+#             */
-/*   Updated: 2024/12/06 03:51:43 by marcnava         ###   ########.fr       */
+/*   Updated: 2025/02/04 17:56:59 by marcnava         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../../includes/push_swap.h"
 
-t_ps_node	*ft_last_node(t_ps_node *node)
+
+t_ps_node	*stack_last_node(t_ps_node *node)
 {
 	if (!node)
 		return (NULL);
@@ -21,7 +22,7 @@ t_ps_node	*ft_last_node(t_ps_node *node)
 	return (node);
 }
 
-bool	ft_is_sorted(t_ps_node *stack)
+bool	stack_is_sorted(t_ps_node *stack)
 {
 	if (!stack)
 		return (true);
@@ -34,7 +35,7 @@ bool	ft_is_sorted(t_ps_node *stack)
 	return (true);
 }
 
-int	ft_stack_len(t_ps_node *stack)
+int	stack_len(t_ps_node *stack)
 {
 	int	count;
 
@@ -49,7 +50,7 @@ int	ft_stack_len(t_ps_node *stack)
 	return (count);
 }
 
-t_ps_node	*ft_find_smallest(t_ps_node *stack)
+t_ps_node	*stack_smallest_node(t_ps_node *stack)
 {
 	long		min;
 	t_ps_node	*node;
@@ -69,7 +70,7 @@ t_ps_node	*ft_find_smallest(t_ps_node *stack)
 	return (node);
 }
 
-t_ps_node	*ft_find_biggest(t_ps_node *stack)
+t_ps_node	*stack_biggest_node(t_ps_node *stack)
 {
 	long		max;
 	t_ps_node	*node;

@@ -6,13 +6,14 @@
 /*   By: marcnava <marcnava@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 18:19:07 by marcnava          #+#    #+#             */
-/*   Updated: 2024/12/05 18:39:02 by marcnava         ###   ########.fr       */
+/*   Updated: 2025/02/04 17:55:04 by marcnava         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../../includes/push_swap.h"
 
-void	ft_free_stack(t_ps_node **stack)
+
+void	free_stack(t_ps_node **stack)
 {
 	t_ps_node	*tmp;
 	t_ps_node	*current;

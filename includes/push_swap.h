@@ -6,15 +6,18 @@
 /*   By: marcnava <marcnava@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 17:29:55 by marcnava          #+#    #+#             */
-/*   Updated: 2024/12/06 03:01:21 by marcnava         ###   ########.fr       */
+/*   Updated: 2025/02/05 20:49:21 by marcnava         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include "../libs/libft/headers/libft.h"
+# include "../libs/libft/includes/libft.h"
 # include <stdbool.h>
+
+# define OK 0
+# define KO 1
 
 typedef struct s_ps_node
 {
@@ -47,20 +50,27 @@ void		ss(t_ps_node **a, t_ps_node **b);
 
 // UTILS
 
-void		ft_free_stack(t_ps_node **stack);
+void		free_stack(t_ps_node **stack);
 
-t_ps_node	*ft_last_node(t_ps_node *node);
-bool		ft_is_sorted(t_ps_node *stack);
-int			ft_stack_len(t_ps_node *stack);
-t_ps_node	*ft_find_biggest(t_ps_node *stack);
-t_ps_node	*ft_find_smallest(t_ps_node *stack);
+t_ps_node	*stack_last_node(t_ps_node *stack);
+bool		stack_is_sorted(t_ps_node *stack);
+int			stack_len(t_ps_node *stack);
+t_ps_node	*stack_biggest_node(t_ps_node *stack);
+t_ps_node	*stack_smallest_node(t_ps_node *stack);
 
-void		ft_init_stack(t_ps_node **stack, char **values);
+void		init_stack(t_ps_node **stack, char **values);
+void		print_stack(t_ps_node *stack);
 
 // ALGORITHM
 
-void		ft_sort_two(t_ps_node **stack);
-void		ft_sort_three(t_ps_node **stack);
-void		ft_sort(t_ps_node **a, t_ps_node **b);
+void		sort_two(t_ps_node **stack);
+void		sort_three(t_ps_node **stack);
+void		sort(t_ps_node **a, t_ps_node **b);
+
+// ERRORS
+
+int			check_sintax(char *value);
+int			check_dup(t_ps_node *stack, int nbr);
+void		terminate(t_ps_node **stack, char **values, int error_index, const char *error_message);
 
 #endif

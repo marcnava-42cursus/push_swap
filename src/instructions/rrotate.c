@@ -6,11 +6,12 @@
 /*   By: marcnava <marcnava@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 19:54:02 by marcnava          #+#    #+#             */
-/*   Updated: 2024/12/03 19:10:47 by marcnava         ###   ########.fr       */
+/*   Updated: 2025/02/04 17:55:44 by marcnava         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../../includes/push_swap.h"
+
 
 static void	_rrotate(t_ps_node **node)
 {
@@ -18,7 +19,7 @@ static void	_rrotate(t_ps_node **node)
 
 	if (!*node || !(*node)->next)
 		return ;
-	last = ft_last_node(*node);
+	last = stack_last_node(*node);
 	(*node)->prev = last;
 	last->next = *node;
 	*node = last;

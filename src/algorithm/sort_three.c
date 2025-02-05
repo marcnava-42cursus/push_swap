@@ -6,17 +6,18 @@
 /*   By: marcnava <marcnava@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 18:16:35 by marcnava          #+#    #+#             */
-/*   Updated: 2024/12/06 03:59:10 by marcnava         ###   ########.fr       */
+/*   Updated: 2025/02/04 17:57:34 by marcnava         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../../includes/push_swap.h"
 
-void	ft_sort_three(t_ps_node **stack)
+
+void	sort_three(t_ps_node **stack)
 {
 	t_ps_node	*max;
 
-	max = ft_find_biggest(*stack);
+	max = stack_biggest_node(*stack);
 	if (max == *stack)
 		ra(stack);
 	else if (max == (*stack)->next)
