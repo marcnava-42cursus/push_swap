@@ -6,7 +6,7 @@
 /*   By: marcnava <marcnava@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 20:19:14 by marcnava          #+#    #+#             */
-/*   Updated: 2025/02/05 21:18:34 by marcnava         ###   ########.fr       */
+/*   Updated: 2025/02/10 18:04:11 by marcnava         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,21 +39,23 @@ int	check_dup(t_ps_node *stack, int nbr)
 	return (OK);
 }
 
-void terminate(t_ps_node **stack, char **values, int error_index, const char *error_message)
+void	terminate(t_ps_node **stack, char **values,
+	int error_index, const char *error_message)
 {
-    int i = 0;
+	int	i;
 
-    free_stack(stack);
-    ft_printf("Error: %s\n", error_message);
-    ft_printf("./push_swap ");
-    while (values[i])
-    {
-        if (i == error_index)
-            ft_printf("\033[31m%s\033[0m ", values[i]);
-        else
-            ft_printf("%s ", values[i]);
-        i++;
-    }
-    ft_printf("\n");
-    exit(KO);
+	i = 0;
+	free_stack(stack);
+	ft_printf("Error: %s\n", error_message);
+	ft_printf("./push_swap ");
+	while (values[i])
+	{
+		if (i == error_index)
+			ft_printf("\033[31m%s\033[0m ", values[i]);
+		else
+			ft_printf("%s ", values[i]);
+		i++;
+	}
+	ft_printf("\n");
+	exit(KO);
 }

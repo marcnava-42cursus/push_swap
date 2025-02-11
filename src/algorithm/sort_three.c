@@ -6,12 +6,11 @@
 /*   By: marcnava <marcnava@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 18:16:35 by marcnava          #+#    #+#             */
-/*   Updated: 2025/02/04 17:57:34 by marcnava         ###   ########.fr       */
+/*   Updated: 2025/02/10 18:05:55 by marcnava         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
-
 
 void	sort_three(t_ps_node **stack)
 {

@@ -6,7 +6,7 @@
 #    By: marcnava <marcnava@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/26 17:33:23 by marcnava          #+#    #+#              #
-#    Updated: 2025/02/05 16:12:23 by marcnava         ###   ########.fr        #
+#    Updated: 2025/02/10 21:04:56 by marcnava         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,9 +47,11 @@ SRCS		+=	$(UTILS)/error_handler.c \
 				$(UTILS)/print_stack.c \
 				$(UTILS)/stack_handler.c \
 				$(UTILS)/stack_manager.c \
+				$(UTILS)/stack_utils.c \
 				$(UTILS)/stack.c
 
-SRCS		+=	$(ALGORITHM)/init_stacks.c \
+SRCS		+=	$(ALGORITHM)/check_tools.c \
+				$(ALGORITHM)/init_stacks.c \
 				$(ALGORITHM)/sort_three.c \
 				$(ALGORITHM)/sort_two.c \
 				$(ALGORITHM)/sort.c

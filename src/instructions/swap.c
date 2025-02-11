@@ -6,12 +6,11 @@
 /*   By: marcnava <marcnava@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 19:37:45 by marcnava          #+#    #+#             */
-/*   Updated: 2025/01/29 19:23:11 by marcnava         ###   ########.fr       */
+/*   Updated: 2025/02/10 18:06:07 by marcnava         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
-
 
 static void	_swap(t_ps_node **node)
 {
