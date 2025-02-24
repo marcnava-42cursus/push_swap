@@ -6,7 +6,7 @@
 /*   By: marcnava <marcnava@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 19:39:25 by marcnava          #+#    #+#             */
-/*   Updated: 2025/02/10 20:57:51 by marcnava         ###   ########.fr       */
+/*   Updated: 2025/02/20 20:35:58 by marcnava         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,11 +59,31 @@ static void	find_targets(t_ps_node *a, t_ps_node *b)
 	}
 }
 
+static void	find_cheapest(t_ps_node *stack)
+{
+	long		nbr;
+	t_ps_node	*cheapest;
+
+	if (!stack)
+		return ;
+	nbr = UINT_MAX;
+	while (stack)
+	{
+		if (stack->cost < nbr)
+		{
+			nbr = stack->cost;
+			cheapest = stack;
+		}
+		stack = stack->next;
+	}
+	cheapest->cheapest = true;
+}
+
 void	initialize_a(t_ps_node *a, t_ps_node *b)
 {
 	fix_indexes(a);
 	fix_indexes(b);
 	find_targets(a, b);
 	calculate_cost(a, b);
-	
+	find_cheapest(a);
 }

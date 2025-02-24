@@ -6,7 +6,7 @@
 #    By: marcnava <marcnava@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/26 17:33:23 by marcnava          #+#    #+#              #
-#    Updated: 2025/02/10 21:04:56 by marcnava         ###   ########.fr        #
+#    Updated: 2025/02/20 21:17:45 by marcnava         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,6 +48,7 @@ SRCS		+=	$(UTILS)/error_handler.c \
 				$(UTILS)/stack_handler.c \
 				$(UTILS)/stack_manager.c \
 				$(UTILS)/stack_utils.c \
+				$(UTILS)/stack_utils2.c \
 				$(UTILS)/stack.c
 
 SRCS		+=	$(ALGORITHM)/check_tools.c \
@@ -61,14 +62,14 @@ OBJS		=	$(SRCS:.c=.o)
 # **************************************************************************** #
 #		RULES		#
 
-all: 			compiling $(NAME)
+$(NAME):		$(OBJS)
+				@$(COMPILER) $(INCLUDE) $(OBJS) $(LIBS)/libft.a -o $(NAME)
+				@printf "Compiled.\n"
+
+all: 			compiling $(LIBS)/libft.a $(NAME)
 
 $(LIBS)/libft.a:
 				@$(MAKE) --no-print-directory -C $(LIBS)
-
-$(NAME):		$(OBJS) $(LIBS)/libft.a
-				@$(COMPILER) $(INCLUDE) $(OBJS) $(LIBS)/libft.a -o $(NAME)
-				@printf "Compiled.\n"
 
 %.o:			%.c
 				@$(COMPILER) $(INCLUDE) -c $< -o $@

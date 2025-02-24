@@ -6,7 +6,7 @@
 /*   By: marcnava <marcnava@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 17:34:35 by marcnava          #+#    #+#             */
-/*   Updated: 2025/02/10 19:28:19 by marcnava         ###   ########.fr       */
+/*   Updated: 2025/02/20 21:16:13 by marcnava         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,18 +28,18 @@ void	check_rrr(t_ps_node **a, t_ps_node **b, t_ps_node *cheapest)
 	fix_indexes(*b);
 }
 
-void	check_push(t_ps_node **stack, t_ps_node *to_top, char name)
+void	check_push(t_ps_node **stack, t_ps_node *to_top, int name)
 {
 	if (*stack != to_top)
 	{
-		if (name == 'a')
+		if (name == STACK_A)
 		{
 			if (to_top->half)
 				ra(stack);
 			else
 				rra(stack);
 		}
-		else if (name == 'b')
+		else if (name == STACK_B)
 		{
 			if (to_top->half)
 				rb(stack);
@@ -48,4 +48,3 @@ void	check_push(t_ps_node **stack, t_ps_node *to_top, char name)
 		}
 	}
 }
-

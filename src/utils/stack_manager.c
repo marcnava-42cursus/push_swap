@@ -6,7 +6,7 @@
 /*   By: marcnava <marcnava@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 18:51:17 by marcnava          #+#    #+#             */
-/*   Updated: 2025/02/11 15:46:49 by marcnava         ###   ########.fr       */
+/*   Updated: 2025/02/11 19:52:12 by marcnava         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,4 +77,15 @@ void	fix_indexes(t_ps_node *stack)
 		stack = stack->next;
 		index++;
 	}
+}
+
+void	move_cheapest(t_ps_node **a, t_ps_node **b)
+{
+	t_ps_node	*cheapest;
+
+	cheapest = cheapest_node(*a);
+	if (cheapest->half && cheapest->target->half)
+		check_rr(a, b, cheapest);
+	else if (!(cheapest->half) && !(cheapest->target->half))
+		check_rrr(a, b, cheapest);
 }
