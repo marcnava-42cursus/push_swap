@@ -6,7 +6,7 @@
 /*   By: marcnava <marcnava@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/28 17:11:40 by marcnava          #+#    #+#             */
-/*   Updated: 2025/02/28 17:11:41 by marcnava         ###   ########.fr       */
+/*   Updated: 2025/03/01 19:35:48 by marcnava         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,19 +32,19 @@ void	check_push(t_ps_node **stack, t_ps_node *top, char name)
 {
 	while (*stack != top)
 	{
-		if (name == 'a')
+		if (name == STACK_A)
 		{
 			if (top->half)
 				ra(stack);
 			else
 				rra(stack);
 		}
-		else if (name == 'b')
+		else if (name == STACK_B)
 		{
 			if (top->half)
 				rb(stack);
 			else
 				rrb(stack);
-		}	
+		}
 	}
 }

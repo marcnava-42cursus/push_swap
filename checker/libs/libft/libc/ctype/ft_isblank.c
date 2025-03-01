@@ -1,21 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.c                                          :+:      :+:    :+:   */
+/*   ft_isblank.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marcnava <marcnava@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/28 19:06:34 by marcnava          #+#    #+#             */
-/*   Updated: 2025/02/28 19:08:11 by marcnava         ###   ########.fr       */
+/*   Created: 2024/11/12 17:36:37 by marcnava          #+#    #+#             */
+/*   Updated: 2025/01/24 12:07:23 by marcnava         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/checker.h"
+#include "../../includes/libft.h"
 
-int main(int argc, char const *argv[])
+int	ft_isblank(int c)
 {
-	if (argc == 1)
-		argc = 1;
-	argv[0] = "hola";
-	return 0;
+	return (c == 32 || c == 9);
 }

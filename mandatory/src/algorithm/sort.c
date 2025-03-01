@@ -6,7 +6,7 @@
 /*   By: marcnava <marcnava@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/28 17:12:03 by marcnava          #+#    #+#             */
-/*   Updated: 2025/02/28 17:12:04 by marcnava         ###   ########.fr       */
+/*   Updated: 2025/03/01 19:35:25 by marcnava         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,20 +27,20 @@ static void	pre_sort_a(t_ps_node **a, t_ps_node **b)
 {
 	t_ps_node	*cheapest;
 
-	cheapest = cheapest_node(*a); 
+	cheapest = cheapest_node(*a);
 	if (cheapest->half && cheapest->target->half)
 		check_rr(a, b, cheapest);
 	else if (!(cheapest->half) && !(cheapest->target->half))
 		check_rrr(a, b, cheapest);
-	check_push(a, cheapest, 'a');
-	check_push(b, cheapest->target, 'b');
+	check_push(a, cheapest, STACK_A);
+	check_push(b, cheapest->target, STACK_B);
 	pb(b, a);
 }
 
 static void	pre_sort_b(t_ps_node **a, t_ps_node **b)
 {
 	check_push(a, (*b)->target, 'a');
-	pa(a, b); 
+	pa(a, b);
 }
 
 void	sort(t_ps_node **a, t_ps_node **b)

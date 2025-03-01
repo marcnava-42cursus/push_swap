@@ -4,3 +4,4 @@ build/
 *.o
 *.out
 push_swap
+checker_linux

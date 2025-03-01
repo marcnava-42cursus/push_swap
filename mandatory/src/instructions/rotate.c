@@ -6,7 +6,7 @@
 /*   By: marcnava <marcnava@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/28 17:12:12 by marcnava          #+#    #+#             */
-/*   Updated: 2025/02/28 17:12:13 by marcnava         ###   ########.fr       */
+/*   Updated: 2025/03/01 19:36:31 by marcnava         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static void	rotate(t_ps_node **stack)
 	(*stack)->prev = NULL;
 	last_node->next->prev = last_node;
 	last_node->next->next = NULL;
-}		
+}
 
 void	ra(t_ps_node **a)
 {

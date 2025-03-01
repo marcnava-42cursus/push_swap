@@ -6,7 +6,7 @@
 #    By: marcnava <marcnava@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/26 17:33:23 by marcnava          #+#    #+#              #
-#    Updated: 2025/02/28 18:53:33 by marcnava         ###   ########.fr        #
+#    Updated: 2025/02/28 19:31:28 by marcnava         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,7 @@ SRCSPATH	=	./src
 BUILD		=	./build
 ANIMATION	=	./animation
 
-LIBS		=	./libs/libft
+LIBFT		=	./libs/libft
 INSTR		=	$(SRCSPATH)/instructions
 UTILS		=	$(SRCSPATH)/utils
 ALGORITHM	=	$(SRCSPATH)/algorithm
@@ -70,47 +70,47 @@ SRCS		+=	$(ALGORITHM)/check_tools.c \
 				$(ALGORITHM)/sort_two.c \
 				$(ALGORITHM)/sort.c
 
-OBJS		=	$(patsubst $(SRCSPATH)/%.c, $(BUILD)/%.o, $(SRCS))
+OBJS		=	$(SRCS:$(SRCSPATH)/%.c=$(BUILD)/%.o)
 
 # **************************************************************************** #
 #		RULES		#
 
 run: 
-				@make -s animate &
-				@$(MAKE) -s all
-				@wait $$!
+	@make -s animate &
+	@$(MAKE) -s all
+	@wait $$!
 .PHONY: run
 
-all: 			$(LIBS)/libft.a $(NAME)
+all: $(LIBFT)/libft.a $(NAME)
 .PHONY: all
 
-$(NAME):		$(OBJS)
-				@$(COMPILER) $(INCLUDE) $(OBJS) $(LIBS)/libft.a -o $(NAME)
+$(NAME): $(OBJS)
+	@$(COMPILER) $(INCLUDE) $(OBJS) $(LIBFT)/libft.a -o $(NAME)
 
-$(LIBS)/libft.a:
-				@$(MAKE) --no-print-directory -s -C $(LIBS)
+$(LIBFT)/libft.a:
+	@$(MAKE) --no-print-directory -s -C $(LIBFT)
 
-$(BUILD)/%.o:	$(SRCSPATH)/%.c
-				@mkdir -p $(@D)
-				@$(COMPILER) $(INCLUDE) -c $< -o $@
+$(BUILD)/%.o: $(SRCSPATH)/%.c
+	@mkdir -p $(@D)
+	@$(COMPILER) $(INCLUDE) -c $< -o $@
 
 clean:
-				@$(RM) $(BUILD)
-				@$(MAKE) --no-print-directory -s -C $(LIBS) clean
+	@$(RM) $(BUILD)
+	@$(MAKE) --no-print-directory -s -C $(LIBFT) clean
 .PHONY: clean
 
-fclean:			clean
-				@$(RM) $(NAME)
-				@$(MAKE) --no-print-directory -s -C $(LIBS) fclean
+fclean:	clean
+	@$(RM) $(NAME)
+	@$(MAKE) --no-print-directory -s -C $(LIBFT) fclean
 .PHONY: fclean
 
-re:				fclean run
+re:	fclean run
 .PHONY: re
 
 animate:
-				@for frame in $(FRAMES); do \
-					clear; \
-					sed '1,13d; $$d' $$frame; \
-					sleep 0.4; \
-				done
+	@for frame in $(FRAMES); do \
+		clear; \
+		sed '1,13d; $$d' $$frame; \
+		sleep 0.4; \
+	done
 .PHONY: animate

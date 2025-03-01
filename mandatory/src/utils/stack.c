@@ -6,7 +6,7 @@
 /*   By: marcnava <marcnava@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/28 17:12:46 by marcnava          #+#    #+#             */
-/*   Updated: 2025/02/28 17:15:51 by marcnava         ###   ########.fr       */
+/*   Updated: 2025/02/28 19:41:30 by marcnava         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ t_ps_node	*stack_last_node(t_ps_node *stack)
 int	stack_is_sorted(t_ps_node *stack)
 {
 	if (!stack)
-		return (1);
+		return (TRUE);
 	while (stack->next)
 	{
 		if (stack->number > stack->next->number)

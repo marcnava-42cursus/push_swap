@@ -6,7 +6,7 @@
 #    By: marcnava <marcnava@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/28 18:45:51 by marcnava          #+#    #+#              #
-#    Updated: 2025/02/28 19:01:58 by marcnava         ###   ########.fr        #
+#    Updated: 2025/03/01 19:34:16 by marcnava         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ NAME		=	checker
 CC			=	cc
 RM			=	rm -rf
 
-CFLAGS		=	-Wall -Wextra -Werror
+# CFLAGS		=	-Wall -Wextra -Werror
 
 COMPILER	=	$(CC) $(CFLAGS) -I
 
@@ -30,20 +30,36 @@ INCLUDE		=	./includes
 SRCSPATH	=	./src
 BUILD		=	./build
 
+LIBFT		=	./libs/libft
+
+INSTRPATH	=	./src/instructions
+
 # **************************************************************************** #
 #		FILES	#
 
-SRCS 		=	$(SRCSPATH)/checker.c
+UTILS 		=	$(SRCSPATH)/checker_bonus.c \
+				$(SRCSPATH)/utils_bonus.c
+
+INSTRUCTIONS=	$(INSTRPATH)/swap_bonus.c \
+				$(INSTRPATH)/push_bonus.c \
+				$(INSTRPATH)/rotate_bonus.c \
+				$(INSTRPATH)/rrotate_bonus.c
+
+SRCS		=	$(UTILS) $(INSTRUCTIONS)
 
 OBJS		=	$(SRCS:$(SRCSPATH)/%.c=$(BUILD)/%.o)
 
 # **************************************************************************** #
 #		RULES	#
 
-all: $(NAME)
+bonus: $(LIBFT)/libft.a $(NAME)
+.PHONY: bonus
 
 $(NAME): $(OBJS)
-	@$(COMPILER) $(INCLUDE) -o $(NAME) $(OBJS)
+	@$(COMPILER) $(INCLUDE) $(OBJS) $(LIBFT)/libft.a -o $(NAME)
+
+$(LIBFT)/libft.a:
+	@$(MAKE) --no-print-directory -s -C $(LIBFT)
 
 $(BUILD)/%.o: $(SRCSPATH)/%.c
 	@mkdir -p $(@D)
@@ -51,10 +67,13 @@ $(BUILD)/%.o: $(SRCSPATH)/%.c
 
 clean:
 	@$(RM) $(BUILD)
+	@$(MAKE) --no-print-directory -s -C $(LIBFT) clean
+.PHONY: clean
 
 fclean: clean
 	@$(RM) $(NAME)
+	@$(MAKE) --no-print-directory -s -C $(LIBFT) fclean
+.PHONY: fclean
 
-re: fclean all
-
-.PHONY: all clean fclean re
+re: fclean bonus
+.PHONY: re
