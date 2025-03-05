@@ -6,7 +6,7 @@
 /*   By: marcnava <marcnava@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 19:24:50 by marcnava          #+#    #+#             */
-/*   Updated: 2025/03/01 19:44:52 by marcnava         ###   ########.fr       */
+/*   Updated: 2025/03/05 17:52:57 by marcnava         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ void	rrb(t_list **stack2);
 void	rra(t_list **stack1);
 void	rrr(t_list **stack1, t_list **stack2);
 
-int		issorted(t_list	*stack);
+int		is_sorted(t_list *stack);
+void	print_stack(t_list *node);
+int		int_off_limits(int nbr);
 
 #endif

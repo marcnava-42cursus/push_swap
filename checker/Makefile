@@ -6,7 +6,7 @@
 #    By: marcnava <marcnava@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/28 18:45:51 by marcnava          #+#    #+#              #
-#    Updated: 2025/03/01 19:34:16 by marcnava         ###   ########.fr        #
+#    Updated: 2025/03/05 16:31:01 by marcnava         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ NAME		=	checker
 CC			=	cc
 RM			=	rm -rf
 
-# CFLAGS		=	-Wall -Wextra -Werror
+CFLAGS		=	-Wall -Wextra -Werror
 
 COMPILER	=	$(CC) $(CFLAGS) -I
 

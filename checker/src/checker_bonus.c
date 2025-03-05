@@ -6,13 +6,13 @@
 /*   By: marcnava <marcnava@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 19:24:03 by marcnava          #+#    #+#             */
-/*   Updated: 2025/03/01 19:34:44 by marcnava         ###   ########.fr       */
+/*   Updated: 2025/03/05 16:36:28 by marcnava         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/checker_bonus.h"
 
-int	lexer(char *input, t_swap *tab)
+static int	lexer(char *input, t_swap *tab)
 {
 	if (ft_strcmp(input, "sa\n") == 0)
 		sa(&tab->stack_a);
@@ -41,7 +41,7 @@ int	lexer(char *input, t_swap *tab)
 	return (free(input), 1);
 }
 
-int	ft_check(t_list *lst, int n, char *nbr)
+static int	ft_check(t_list *lst, int n, char *nbr)
 {
 	t_list	*tmp;
 	int		i;
@@ -64,35 +64,35 @@ int	ft_check(t_list *lst, int n, char *nbr)
 	return (1);
 }
 
-t_list	*ft_init(char **ag, int ac)
+static t_list	*ft_init(char **argv, int argc)
 {
 	t_list	*tmp;
 	t_list	*res;
 	int		i;
 	long	nbr;
 
-	if (ac == 2)
+	if (argc == 2)
 		i = 0;
 	else
 		i = 1;
 	res = NULL;
-	while (ag[i])
+	while (argv[i])
 	{
-		nbr = ft_atoi(ag[i]);
-		if (!(nbr < INT_MAX && nbr > INT_MIN) || ft_check(res, nbr, ag[i]) == 0)
+		nbr = ft_atoi(argv[i]);
+		if (!(nbr < INT_MAX && nbr > INT_MIN) || ft_check(res, nbr, argv[i]) == 0)
 		{
 			ft_putstr_fd("Error\n", 2);
-			exit(-1);
+			exit(1);
 		}
 		tmp = ft_lstnew(&nbr);
 		ft_lstadd_back(&res, tmp);
-		tmp->content = (void *)(-1);
+		tmp->content = (void *)nbr;
 		i++;
 	}
 	return (res);
 }
 
-void	input(t_swap *tab)
+static void	input(t_swap *tab)
 {
 	char	*input;
 
@@ -108,23 +108,23 @@ void	input(t_swap *tab)
 	}
 }
 
-int	main(int ac, char **ag)
+int	main(int argc, char **argv)
 {
 	t_swap	*tab;
 
-	if (ac == 2)
-		ag = ft_split(ag[1], ' ');
-	if (ac == 1)
+	if (argc == 2)
+		argv = ft_split(argv[1], ' ');
+	if (argc == 1)
 		return (0);
 	tab = malloc(sizeof(t_swap));
 	if (!tab)
-		return (-1);
+		return (1);
 	tab->stack_b = NULL;
-	tab->stack_a = ft_init(ag, ac);
+	tab->stack_a = ft_init(argv, argc);
 	if (tab->stack_a == NULL)
-		return (-1);
+		return (1);
 	input(tab);
-	if (issorted(tab->stack_a) && !tab->stack_b)
+	if (is_sorted(tab->stack_a) && !tab->stack_b)
 		ft_putstr_fd("OK\n", 1);
 	else
 		ft_putstr_fd("KO\n", 1);
