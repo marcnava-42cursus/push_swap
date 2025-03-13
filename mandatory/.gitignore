@@ -1,7 +1,10 @@
 .vscode/
 build/
 
+0
 *.o
+*.sh
+*.txt
 *.out
 push_swap
 checker_linux
