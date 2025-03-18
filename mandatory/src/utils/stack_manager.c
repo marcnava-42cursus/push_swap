@@ -6,7 +6,7 @@
 /*   By: marcnava <marcnava@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/28 17:12:38 by marcnava          #+#    #+#             */
-/*   Updated: 2025/02/28 17:17:11 by marcnava         ###   ########.fr       */
+/*   Updated: 2025/03/17 15:26:06 by marcnava         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	init_stack(t_ps_node **a, char **argv)
 	i = 0;
 	while (argv[i])
 	{
-		if (check_sintax(argv[i]))
+		if (check_sintax(argv[i]) || ft_strlen(argv[i]) > 11)
 			terminate(a);
 		n = ft_atol(argv[i]);
 		if (n > INT_MAX || n < INT_MIN)

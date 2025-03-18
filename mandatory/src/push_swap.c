@@ -6,7 +6,7 @@
 /*   By: marcnava <marcnava@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/28 17:12:49 by marcnava          #+#    #+#             */
-/*   Updated: 2025/03/05 14:49:34 by marcnava         ###   ########.fr       */
+/*   Updated: 2025/03/17 13:47:34 by marcnava         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,13 @@ int	main(int argc, char **argv)
 
 	a = NULL;
 	b = NULL;
-	if (argc == 1 || (argc == 2 && !argv[1][0]))
+	if (argc == 1)
 		return (1);
-	// else if (argc == 2)
-	// 	argv = ft_split(argv[1], ' ');
+	if (argc == 2)
+	{
+		if (check_sintax(argv[1]))
+			terminate(&a);
+	}
 	init_stack(&a, argv + 1);
 	if (!stack_is_sorted(a))
 	{

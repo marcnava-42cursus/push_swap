@@ -6,7 +6,7 @@
 /*   By: marcnava <marcnava@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/28 17:12:22 by marcnava          #+#    #+#             */
-/*   Updated: 2025/02/28 17:25:07 by marcnava         ###   ########.fr       */
+/*   Updated: 2025/03/17 13:47:38 by marcnava         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 int	check_sintax(char *value)
 {
+	if (!value || !*value)
+		return (KO);
 	if (!ft_strchr("+-0123456789", *value))
 		return (KO);
 	if (ft_strchr("+-", *value) && !ft_isdigit(value[1]))
@@ -42,6 +44,6 @@ int	check_dup(t_ps_node *a, int n)
 void	terminate(t_ps_node **a)
 {
 	free_stack(a);
-	ft_printf("Error\n");
+	ft_putstr_fd("Error\n", STDERR_FILENO);
 	exit(KO);
 }

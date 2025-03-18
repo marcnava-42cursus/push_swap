@@ -6,5 +6,6 @@ build/
 *.sh
 *.txt
 *.out
+*.py
 push_swap
 checker_linux
