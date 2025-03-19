@@ -6,7 +6,7 @@
 /*   By: marcnava <marcnava@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 19:24:03 by marcnava          #+#    #+#             */
-/*   Updated: 2025/03/05 16:36:28 by marcnava         ###   ########.fr       */
+/*   Updated: 2025/03/18 19:13:56 by marcnava         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,9 +79,10 @@ static t_list	*ft_init(char **argv, int argc)
 	while (argv[i])
 	{
 		nbr = ft_atoi(argv[i]);
-		if (!(nbr < INT_MAX && nbr > INT_MIN) || ft_check(res, nbr, argv[i]) == 0)
+		if (!(nbr < INT_MAX && nbr > INT_MIN)
+			|| ft_check(res, nbr, argv[i]) == 0)
 		{
-			ft_putstr_fd("Error\n", 2);
+			ft_putstr_fd("Error\n", STDERR_FILENO);
 			exit(1);
 		}
 		tmp = ft_lstnew(&nbr);
@@ -101,8 +102,8 @@ static void	input(t_swap *tab)
 	{
 		if (!lexer(input, tab))
 		{
-			ft_putstr_fd("Error\n", 1);
-			exit(-1);
+			ft_putstr_fd("Error\n", STDERR_FILENO);
+			exit(1);
 		}
 		input = get_next_line(0);
 	}
@@ -125,7 +126,7 @@ int	main(int argc, char **argv)
 		return (1);
 	input(tab);
 	if (is_sorted(tab->stack_a) && !tab->stack_b)
-		ft_putstr_fd("OK\n", 1);
+		ft_putstr_fd("OK\n", STDOUT_FILENO);
 	else
-		ft_putstr_fd("KO\n", 1);
+		ft_putstr_fd("KO\n", STDOUT_FILENO);
 }

@@ -6,7 +6,7 @@
 #    By: marcnava <marcnava@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/26 17:33:23 by marcnava          #+#    #+#              #
-#    Updated: 2025/03/17 13:45:52 by marcnava         ###   ########.fr        #
+#    Updated: 2025/03/19 17:35:31 by marcnava         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -76,7 +76,7 @@ OBJS		=	$(SRCS:$(SRCSPATH)/%.c=$(BUILD)/%.o)
 #		RULES		#
 
 run: 
-	# @make -s animate &
+	@make -s animate &
 	@$(MAKE) -s all
 	@wait $$!
 .PHONY: run
